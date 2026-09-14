@@ -564,10 +564,42 @@ function currentTripDay() {
   return state.data.days.find((day) => day.date === today)?.day || null;
 }
 
+function renderWeather() {
+  const container = $("#weather-overview");
+  if (!container) return;
+  const days = state.data.days || [];
+  const weatherDays = days.filter(d => d.weather);
+  if (!weatherDays.length) {
+    container.innerHTML = "";
+    return;
+  }
+  const weatherIcons = {
+    "晴": "☀️", "晴转多云": "⛅", "多云": "☁️", "阴": "☁️",
+    "小雨": "🌦️", "中雨": "🌧️", "大雨": "🌧️", "雨": "️"
+  };
+  container.innerHTML = `<div class="weather-grid">${weatherDays.map(d => {
+    const w = d.weather;
+    const icon = weatherIcons[w.condition] || "️";
+    const rainClass = parseInt(w.rainProbability) >= 30 ? "rain-likely" : "";
+    return `<div class="weather-card ${rainClass}">
+      <div class="weather-date">D${d.day} ${w.date}</div>
+      <div class="weather-location">${w.location}</div>
+      <div class="weather-main">
+        <span class="weather-icon">${icon}</span>
+        <span class="weather-condition">${w.condition}</span>
+      </div>
+      <div class="weather-temp">${w.low}°C ~ ${w.high}°C</div>
+      <div class="weather-rain">降雨概率 ${w.rainProbability}</div>
+      ${w.note ? `<div class="weather-note">${w.note}</div>` : ""}
+    </div>`;
+  }).join("")}</div>`;
+}
+
 function renderTimeline() {
   const today = currentTripDay();
   state.expandedDay = today;
   $("#day-count").textContent = `${state.data.days.length} DAYS`;
+  renderWeather();
   $("#timeline").innerHTML = state.data.days.map(dayCard).join("");
   $("#timeline").onclick = (event) => {
     const ticketButton = event.target.closest("[data-ticket-open]");
