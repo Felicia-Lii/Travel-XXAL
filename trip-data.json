@@ -314,7 +314,16 @@
           "type": "check-in",
           "text": "入住如家商旅（中央大街地铁站安国街店）"
         }
-      ]
+      ],
+      "weather": {
+        "date": "9/25",
+        "location": "哈尔滨",
+        "high": 19,
+        "low": 9,
+        "condition": "多云",
+        "rainProbability": "30%",
+        "note": "晚间抵达，气温偏凉，建议带外套"
+      }
     },
     {
       "day": 2,
@@ -359,7 +368,16 @@
           "text": "伊春夜市觅食（烧烤、山货）",
           "placeId": "yichun-night-market"
         }
-      ]
+      ],
+      "weather": {
+        "date": "9/26",
+        "location": "哈尔滨→伊春",
+        "high": 17,
+        "low": 6,
+        "condition": "晴转多云",
+        "rainProbability": "20%",
+        "note": "白天适合自驾，早晚温差大"
+      }
     },
     {
       "day": 3,
@@ -420,7 +438,16 @@
           "type": "check-in",
           "text": "回酒店休息"
         }
-      ]
+      ],
+      "weather": {
+        "date": "9/27",
+        "location": "伊春",
+        "high": 16,
+        "low": 5,
+        "condition": "多云",
+        "rainProbability": "40%",
+        "note": "林区气温较低，建议穿保暖外套"
+      }
     },
     {
       "day": 4,
@@ -481,7 +508,16 @@
           "type": "check-in",
           "text": "入住如家精选（哈尔滨西站万达广场店）"
         }
-      ]
+      ],
+      "weather": {
+        "date": "9/28",
+        "location": "伊春→哈尔滨",
+        "high": 18,
+        "low": 7,
+        "condition": "晴",
+        "rainProbability": "10%",
+        "note": "适合夜驾返程，注意夜间降温"
+      }
     },
     {
       "day": 5,
@@ -515,7 +551,16 @@
           "type": "transport",
           "text": "航班起飞，返程"
         }
-      ]
+      ],
+      "weather": {
+        "date": "9/29",
+        "location": "哈尔滨",
+        "high": 20,
+        "low": 10,
+        "condition": "晴",
+        "rainProbability": "10%",
+        "note": "返程日，天气良好"
+      }
     }
   ],
   "places": [
