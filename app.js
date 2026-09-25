@@ -74,6 +74,12 @@ const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character)
   '"': "&quot;"
 })[character]);
 
+const noteItemText = (item) => {
+  if (!item || typeof item === "string") return item || "";
+  const title = item.title ? `${item.title}：` : "";
+  return `${title}${item.text || item.label || item.name || ""}`;
+};
+
 const airportCity = (airport) => airport.city || airport.airportCode;
 
 function localDateTime(date, time, _airportCode, utcOffset = "") {
@@ -709,11 +715,11 @@ function renderRental() {
       </div>
     </article>
   `;
-  const insurance = (rental.insurance || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+  const insurance = (rental.insurance || []).map((item) => `<li>${escapeHtml(noteItemText(item))}</li>`).join("");
   const panels = {
-    checklist: transport.rentalChecklist.map((rule) => `<li>${escapeHtml(rule)}</li>`).join(""),
+    checklist: transport.rentalChecklist.map((rule) => `<li>${escapeHtml(noteItemText(rule))}</li>`).join(""),
     insurance,
-    driving: `${(transport.drivingNotes || []).map((rule) => `<li>${escapeHtml(rule)}</li>`).join("")}${(transport.drivingReferenceLinks || []).map((link) => `<li><a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)} ↗</a></li>`).join("")}`
+    driving: `${(transport.drivingNotes || []).map((rule) => `<li>${escapeHtml(noteItemText(rule))}</li>`).join("")}${(transport.drivingReferenceLinks || []).map((link) => `<li><a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)} ↗</a></li>`).join("")}`
   };
   const notes = $("#drive-notes");
   notes.innerHTML = `
