@@ -39,10 +39,14 @@
     "dayCount": 5,
     "nightCountAway": 4,
     "countries": [
-      "中国"
+      {
+        "code": "CN",
+        "name": "China",
+        "nameZh": "中国"
+      }
     ],
     "primaryDestinationCountries": [
-      "中国"
+      "CN"
     ],
     "primaryDestinationName": "小兴安岭",
     "citiesAndAreas": [
